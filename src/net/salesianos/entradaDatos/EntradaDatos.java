@@ -30,4 +30,14 @@ public class EntradaDatos {
             }
         }
     }
+    public static int pedirPuntuacion(String mensaje) {
+        int puntuacion;
+        do {
+            puntuacion = pedirEntero(mensaje);
+            if (puntuacion < 1 || puntuacion > 5) {
+                JOptionPane.showMessageDialog(null, "La puntuación debe estar entre 1 y 5.");
+            }
+        } while (puntuacion < 1 || puntuacion > 5);
+        return puntuacion;
+    }
 }
