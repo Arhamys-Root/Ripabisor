@@ -8,7 +8,46 @@ import net.salesianos.restaurante.Restaurante;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+        Lista service = new Lista();
+        boolean salir = false;
+
+        while (!salir) {
+            String opcion = JOptionPane.showInputDialog(
+                    null,
+                    "1. Añadir restaurante\n" +
+                    "2. Editar restaurante\n" +
+                    "3. Mostrar restaurantes\n" +
+                    "4. Eliminar restaurante\n" +
+                    "5. Salir\n\n" +
+                    "Elige una opción:"
+            );
+
+            if (opcion == null) {
+                JOptionPane.showMessageDialog(null, "Debes salir desde la opción 5.");
+                continue;
+            }
+
+            switch (opcion) {
+                case "1":
+                    anadirRestaurante(service);
+                    break;
+                case "2":
+                    editarRestaurante(service);
+                    break;
+                case "3":
+                    mostrarRestaurantes(service);
+                    break;
+                case "4":
+                    eliminarRestaurante(service);
+                    break;
+                case "5":
+                    salir = true;
+                    JOptionPane.showMessageDialog(null, "Programa finalizado.");
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(null, "Opción no válida.");
+            }
+        }
     }
 
     public static void anadirRestaurante(Lista service) {
