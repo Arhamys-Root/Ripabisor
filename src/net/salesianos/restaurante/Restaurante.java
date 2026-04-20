@@ -24,5 +24,15 @@ public class Restaurante {
     public int getPuntuacion() {
         return puntuacion;
     }
-
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    public void setCiudad(String ciudad) {  
+        this.ciudad = ciudad;
+    }
+    public void setTipoCocina(String tipoCocina) {
+        this.tipoCocina = tipoCocina;
+    public void setPuntuacion(int puntuacion) {
+        this.puntuacion = puntuacion;
+    }
 }
