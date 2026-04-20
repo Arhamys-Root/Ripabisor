@@ -39,7 +39,7 @@ public class Restaurante {
 
     public void setTipoCocina(String tipoCocina) {
         this.tipoCocina = tipoCocina;
-
+    }
     public void setPuntuacion(int puntuacion) {
         this.puntuacion = puntuacion;
     }
