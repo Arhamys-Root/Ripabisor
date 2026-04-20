@@ -39,4 +39,22 @@ public class App {
 
         JOptionPane.showMessageDialog(null, sb.toString());
     }
+        public static void eliminarRestaurante(Lista service) {
+        if (service.estaVacia()) {
+            JOptionPane.showMessageDialog(null, "No hay restaurantes para eliminar.");
+            return;
+        }
+
+        mostrarRestaurantes(service);
+
+        int indice = EntradaDatos.pedirEntero("Introduce el índice del restaurante a eliminar:");
+
+        if (indice < 0 || indice >= service.getLista().size()) {
+            JOptionPane.showMessageDialog(null, "Índice no válido.");
+            return;
+        }
+
+        service.eliminar(indice);
+        JOptionPane.showMessageDialog(null, "Restaurante eliminado correctamente.");
+    }
 }
