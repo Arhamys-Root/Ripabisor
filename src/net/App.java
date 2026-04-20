@@ -22,6 +22,9 @@ public class App {
 
         JOptionPane.showMessageDialog(null, "Restaurante añadido correctamente.");
     }
+
+
+
     public static void mostrarRestaurantes(Lista service) {
         if (service.estaVacia()) {
             JOptionPane.showMessageDialog(null, "No hay restaurantes guardados.");
@@ -39,6 +42,11 @@ public class App {
 
         JOptionPane.showMessageDialog(null, sb.toString());
     }
+
+
+
+
+
         public static void eliminarRestaurante(Lista service) {
         if (service.estaVacia()) {
             JOptionPane.showMessageDialog(null, "No hay restaurantes para eliminar.");
@@ -56,5 +64,38 @@ public class App {
 
         service.eliminar(indice);
         JOptionPane.showMessageDialog(null, "Restaurante eliminado correctamente.");
+    }
+
+
+
+
+    public static void editarRestaurante(Lista service) {
+        if (service.estaVacia()) {
+            JOptionPane.showMessageDialog(null, "No hay restaurantes para editar.");
+            return;
+        }
+
+        mostrarRestaurantes(service);
+
+        int indice = EntradaDatos.pedirEntero("Introduce el índice del restaurante a editar:");
+
+        if (indice < 0 || indice >= service.getLista().size()) {
+            JOptionPane.showMessageDialog(null, "Índice no válido.");
+            return;
+        }
+
+        Restaurante r = service.obtener(indice);
+
+        String nombre = EntradaDatos.pedirTexto("Nuevo nombre:");
+        String ciudad = EntradaDatos.pedirTexto("Nueva ciudad:");
+        String tipoCocina = EntradaDatos.pedirTexto("Nuevo tipo de cocina:");
+        int puntuacion = EntradaDatos.pedirPuntuacion("Nueva puntuación (1-5):");
+
+        r.setNombre(nombre);
+        r.setCiudad(ciudad);
+        r.setTipoCocina(tipoCocina);
+        r.setPuntuacion(puntuacion);
+
+        JOptionPane.showMessageDialog(null, "Restaurante editado correctamente.");
     }
 }
