@@ -22,4 +22,21 @@ public class App {
 
         JOptionPane.showMessageDialog(null, "Restaurante añadido correctamente.");
     }
+    public static void mostrarRestaurantes(Lista service) {
+        if (service.estaVacia()) {
+            JOptionPane.showMessageDialog(null, "No hay restaurantes guardados.");
+            return;
+        }
+
+        service.ordenarPorPuntuacionDesc();
+
+        StringBuilder sb = new StringBuilder("LISTA DE RESTAURANTES\n\n");
+
+        for (int i = 0; i < service.getLista().size(); i++) {
+            sb.append("ÍNDICE: ").append(i).append("\n");
+            sb.append(service.getLista().get(i).toString()).append("\n\n");
+        }
+
+        JOptionPane.showMessageDialog(null, sb.toString());
+    }
 }
