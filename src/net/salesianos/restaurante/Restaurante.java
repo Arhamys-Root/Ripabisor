@@ -12,4 +12,17 @@ public class Restaurante {
         this.tipoCocina = tipoCocina;
         this.puntuacion = puntuacion;
     }
+    public String getNombre() {
+        return nombre;
+    }
+    public String getCiudad() {
+        return ciudad;
+    }
+    public String getTipoCocina() {
+        return tipoCocina;
+    }
+    public int getPuntuacion() {
+        return puntuacion;
+    }
+
 }
